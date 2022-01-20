@@ -164,122 +164,145 @@ WaveSchedule
 	{
 		RandomTeleporter
 		{
-			info_target
-			{
-				"targetname" "teleport1"
-				"origin" "-1273.1 4114.4 -149.0" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport1" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport2"
-				"origin" "-3772.1 3190.9 147.2" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport2" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport3"
-				"origin" "-1288.3 425.6 112.7" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport3" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport4"
-				"origin" "-147.3 2968.8 269.6" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport4" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport5"
-				"origin" "-1897.0 5016.9 89.7" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport5" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport6"
-				"origin" "-2388.7 3278.9 -142.9" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport6" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport7"
-				"origin" "-3676.4 4940.9 142.7" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport7" //Where to teleport the bot to
-			}
-			info_target
-			{
-				"targetname" "teleport8"
-				"origin" "-2109.6 1405.8 111.2" //wherever you want it to teleport idk the exact syntax
-			}
-			trigger_teleport
-			{
-				"origin" "-959.2 -691.1 321.4" //locate this where the bot will spawn: spawnbot
-				"mins" "-500 -500 -100" 
-				"maxs" "500 500 100" 
-				"spawnflags" "1"
-				"startdisabled" "1"
-				"target" "teleport8" 
-			}
+			NoFixup 1 //Best to put this in by default while you're getting a grasp on how things work.
+			//Basically it allows you to target entities in this point template from outside of it, as opposed to only allowing interactions between entities and output blocks within the point template. (Unless you're using a wildcard or can grab the exact fixed up targetname. However you shouldn't worry about this for now, just put "NoFixup 1" in every point template.)
+
 			info_target 
+			{ 
+				"targetname" "teleport1_target" //Clarifying the purpose of the entity in the targetname makes things much easier to keep track of.
+				"origin" "-1273.1 4114.4 -149.0" //Where you want it to teleport.
+			}
+			//VDC page for info_target: https://developer.valvesoftware.com/wiki/Info_target
+			//The VDC (AKA Valve Developer Community) is an incredibly valuable resource for figuring out what entities do and what the valid key values, flags, and inputs are for them, among other things.
+			//Easiest way to access these pages for each entity is to use the search bar labeled "Search Valve Developer Community". This should be in the top right of all VDC web pages.
+
+			trigger_teleport //VDC page for trigger_teleport: 
 			{
-				"targetname" "teleport8"
-				"origin" "-2109.6 1405.8 111.2" 
+				"targetname" "teleport1" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1" 
+				"startdisabled" "1"
+				"filtername" "filter_blu*" //You'll need a filter in order to prevent red players being teleported as well, the "filter_blu*" string is the targetname of this filter.
+				//All mvm maps are guaranteed to have a blue team filter on them already so generally you don't have to make one, it's just a matter of figuring out which targetname the map has on the filter so you can use it.
+				//However, you can make this a bit easier by using a wildcard. This is done in the filtername string above.
+				//In tf2 map logic the * character is called a wildcard, meaning that any entity targetnames beginning with the letters preceding it will be matched.
+				//Ex: filter_blu* will target filter_blu, filter_blue, filter_bluteam, and filter_blueteam, all very common targetnames for blue team filters in maps.
+
+				"target" "teleport1_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport2_target"
+				"origin" "-3772.1 3190.9 147.2" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport2" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport2_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport3_target"
+				"origin" "-1288.3 425.6 112.7" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport3" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport3_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport4_target"
+				"origin" "-147.3 2968.8 269.6" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport4" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport4_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport5_target"
+				"origin" "-1897.0 5016.9 89.7" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport5" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport5_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport6_target"
+				"origin" "-2388.7 3278.9 -142.9" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport6" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport6_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport7_target"
+				"origin" "-3676.4 4940.9 142.7" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport7" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport7_target" //The origin of the targeted entity is where the bot will be teleported.
+			}
+			info_target
+			{
+				"targetname" "teleport8_target"
+				"origin" "-2109.6 1405.8 111.2" //Where you want it to teleport.
+			}
+			trigger_teleport
+			{
+				"targetname" "teleport8" //Need a targetname for entities if you want to send them inputs.
+				"origin" "-959.2 -691.1 321.4" //Set this to the location of where the bot will spawn.
+				"mins" "-500 -500 -100" 
+				"maxs" "500 500 100" 
+				"spawnflags" "1"
+				"startdisabled" "1"
+				"filtername" "filter_blu*"
+				"target" "teleport8_target" 
 			}
 			OnSpawnOutput
 			{
@@ -289,42 +312,65 @@ WaveSchedule
 			}
 			
 			//[repeat]
-			logic_case
+			logic_case //VDC page for logic_case: https://developer.valvesoftware.com/wiki/Logic_case
 			{
 				"targetname" "randomizer"
-				"OnCase01" "teleport1,Trigger,,0,-1"
-				"OnCase01" "teleport8,Enable,,0,-1"
-				"OnCase01" "teleport8,Disable,,0.01,-1"
 
-				"OnCase02" "teleport2,Trigger,,0,-1"
-				"OnCase02" "teleport8,Enable,,0,-1"
-				"OnCase02" "teleport8,Disable,,0.01,-1"
+				"OnCase01" "teleport1,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport1_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport1_target.
+				"OnCase01" "teleport1,Disable,,0.01,-1" //Disables the brush after 0.01 seconds so that it does not continue to teleport bots after it is no longer needed.
 
-				"OnCase03" "teleport3,Trigger,,0,-1"
-				"OnCase03" "teleport8,Enable,,0,-1"
-				"OnCase03" "teleport8,Disable,,0.01,-1"
+				"OnCase02" "teleport2,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport2_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport2_target.
+				"OnCase02" "teleport2,Disable,,0.01,-1"
 
-				"OnCase04" "teleport4,Trigger,,0,-1"
-				"OnCase04" "teleport8,Enable,,0,-1"
-				"OnCase04" "teleport8,Disable,,0.01,-1"
+				"OnCase03" "teleport3,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport3_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport3_target.
+				"OnCase03" "teleport3,Disable,,0.01,-1"
 
+				"OnCase04" "teleport4,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport4_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport4_target.
+				"OnCase04" "teleport4,Disable,,0.01,-1"
 
-				"OnCase05" "teleport5,Trigger,,0,-1"
-				"OnCase05" "teleport8,Enable,,0,-1"
-				"OnCase05" "teleport8,Disable,,0.01,-1"
+				"OnCase05" "teleport5,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport4_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport5_target.
+				"OnCase05" "teleport5,Disable,,0.01,-1"
 
-				"OnCase06" "teleport6,Trigger,,0,-1"
-				"OnCase06" "teleport8,Enable,,0,-1" 
-				"OnCase06" "teleport8,Disable,,0.01,-1"   
+				"OnCase06" "teleport6,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport4_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport6_target.
+				"OnCase06" "teleport6,Disable,,0.01,-1"   
 
-				"OnCase07" "teleport7,Trigger,,0,-1"
-				"OnCase07" "teleport8,Enable,,0,-1"
-				"OnCase07" "teleport8,Disable,,0.01,-1"
+				"OnCase07" "teleport7,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport4_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport7_target.
+				"OnCase07" "teleport7,Disable,,0.01,-1"
 
-				"OnCase08" "teleport8,Trigger,,0,-1"
-				"OnCase08" "teleport8,Enable,,0,-1"
+				"OnCase08" "teleport8,Enable,,0,-1" //Enables the trigger_teleport brush targeting teleport4_target, teleporting whichever blue player happens to be standing in the trigger's volume to the origin of teleport8_target.
 				"OnCase08" "teleport8,Disable,,0.01,-1"
-				//[repeat all that]
+
+
+				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				//The outputs below are all targeting the same entity meaning that PickRandomShuffle will always output the same result.
+
+				//"OnCase01" "teleport1,Trigger,,0,-1" //This output does nothing since the info_target entity isn't set up to accept "Trigger" as an input.
+				//"OnCase01" "teleport8,Enable,,0,-1"
+				//"OnCase01" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase02" "teleport8,Enable,,0,-1"  
+				//"OnCase02" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase02" "teleport8,Enable,,0,-1" 
+				//"OnCase02" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase03" "teleport8,Enable,,0,-1"
+				//"OnCase03" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase04" "teleport8,Enable,,0,-1"
+				//"OnCase04" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase05" "teleport8,Enable,,0,-1"
+				//"OnCase05" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase06" "teleport8,Enable,,0,-1" 
+				//"OnCase06" "teleport8,Disable,,0.01,-1"   
+
+				//"OnCase07" "teleport8,Enable,,0,-1"
+				//"OnCase07" "teleport8,Disable,,0.01,-1"
+
+				//"OnCase08" "teleport8,Enable,,0,-1"
+				//"OnCase08" "teleport8,Disable,,0.01,-1"
 			}
 			logic_relay
 			{
@@ -1686,7 +1732,10 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Boss_Notorious_Bonecaptain	
-				SpawnTemplate RandomTeleporter
+				SpawnTemplate RandomTeleporter //Spawning the template in a TFBot block like this means the origins you have set in the point template will all be relative to this bot's position continually.
+				//For example, if the bot spawns in at origin "0 100 0" and you have an info_target at "100 -100 100", at the moment the bot spawns the info_target will be at origin "100 0 100".
+				//If the bot then moves to "-100 0 100", the new origin of the info_target will be "0 -100 200".
+				//Essentially your teleports will not function at all since they'd have to be at origin "0 0 0" in order for the volume to encompass the boss.
 			}
 		}
 	}
