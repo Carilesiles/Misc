@@ -1,0 +1,48 @@
+		Explanation //Wave 1
+		{
+			Line "{D500FF}Miss Pauling{reset} : Mercs, Pauling here."
+			Line "{D500FF}Miss Pauling{reset} : {339933}Olivia Mann{reset} has taken full control of the remaining {grey}Gray {reset}forces and restored production."
+			Line "{D500FF}Miss Pauling{reset} : We have managed to seize a whole {red}robo carrier {reset}and rigged it to fight for us."
+			Line "{D500FF}Miss Pauling{reset} : Your {yellow}weapon {reset}arsenals have also been greatly improved by yours truly. Yes {red}Scout,{reset} even you!"
+			Line "{D500FF}Miss Pauling{reset} : Let's get this show on the road."
+		}
+
+		Explanation //Wave 2
+		{
+			Line "{D500FF}Miss Pauling{reset} : Pauling again. Sorry to interrupt."
+			Line "{D500FF}Miss Pauling{reset} : According to intel, {blue}sentry busters{reset} have gone haywire and will seek out any foe for detonation."
+			Line "{D500FF}Miss Pauling{reset} : Snipers can also {2EFF00}headshot!{reset} Watch your head!"
+			Line "{D500FF}Miss Pauling{reset} : Meanwhile have some {red}support robots {reset}to help you out. They're so much more agreeable than the originals. {424235}Just kidding!"
+		}
+
+		Explanation //Wave 3
+		{
+			Line "{D500FF}Miss Pauling{reset} : Apologies for the {green}low funds.{reset} Those red robots consume most of what we had left."
+			Line "{D500FF}Miss Pauling{reset} : You must specialize between {yellow}resistances{reset} or {yellow}weaponry upgrades,{reset} you can't afford both!"
+			Line "{D500FF}Miss Pauling{reset} : Perhaps we'll find {green}extra goodies{reset} along the way."
+			Line "{D500FF}Miss Pauling{reset} : Dispatching {red}brawler templates."
+		}
+
+		Explanation //Wave 4
+		{
+			Line "{D500FF}Miss Pauling{reset} : Call {yellow}medics{reset} to you by using {red}MEDIC!{reset}"
+			Line "{D500FF}Miss Pauling{reset} : Try using {red}Activate Charge!{reset} or {red}Go!{reset} to enable an ubercharge."
+			Line "{D500FF}Miss Pauling{reset} : It would seem they have class preferences. I never imagined robots could discriminate."
+			Line "{D500FF}Miss Pauling{reset} : Oh! Radars suggest the remains of {blue}Captain Punch {reset}shamble around this area. Has it been following us all this way?"
+		}
+
+		Explanation //Wave 5
+		{
+			Line "{D500FF}Miss Pauling{reset} : We have located a {FFA333}survivor{reset} in the immediate area."
+			Line "{D500FF}Miss Pauling{reset} : He appears to hold vital information for {blue}Operation Rewired Rampage."
+			Line "{D500FF}Miss Pauling{reset} : He's been entrusted to our safety in the {FFA333}barn."
+			Line "{D500FF}Miss Pauling{reset} : Protect the {FFA333}VIP {reset}if you can. I fear his death may trigger a chain of unfortunate events."
+		}
+
+		Explanation //Wave
+		{
+			Line "{D500FF}Miss Pauling{reset} : Good morning! Well done!"
+			Line "{D500FF}Miss Pauling{reset} : I'm detecting a {blue}unidentified flying object {reset}heading our way."
+			Line "{D500FF}Miss Pauling{reset} : I'm pushing in all of our {red}robotic numbers{reset} to our aid."
+			Line "{D500FF}Miss Pauling{reset} : Hold the line! This is no {green}bread atrocity!"
+		}
